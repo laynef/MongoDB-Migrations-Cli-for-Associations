@@ -1,8 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+var fs = require('fs');
+var path = require('path');
 
-const index = fs.readdirSync(path.join(__dirname, 'methods')).reduce((acc, item) => {
-
+var index = fs.readdirSync(path.join(__dirname, 'methods')).reduce(function (acc, item) {
+    acc[item] = require(path.join(__dirname, 'methods', item));
+    return acc;
 }, {});
 
 module.exports = index;
