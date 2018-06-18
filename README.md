@@ -16,3 +16,10 @@ Favorites table has a association for the user table
 and video table for queries with include parameters.
 
 ```
+
+## Contributors
+
+Rules and Structure
+
+- Never use es6 for older Node.js version compatibility
+- File names on alias and methods in actions must match

@@ -1,6 +1,8 @@
 var fs = require('fs');
 var path = require('path');
 
+// Constant lookup for alias names with key name being the original command
+// Names are created in the array based on the file name
 var aliasCache = fs.readdirSync(path.join(__dirname, 'alias')).reduce(function (acc, item) {
     acc[item] = require(path.join(__dirname, 'alias', item));
     return acc;
