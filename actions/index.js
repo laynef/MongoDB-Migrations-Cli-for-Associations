@@ -1,5 +1,9 @@
 var fs = require('fs');
 var path = require('path');
+var utils = require('./utils')
+
+// import utils in circular imports for older versions of Node.js
+var formatCommands = utils.formatCommands;
 
 // Constant lookup for alias names with key name being the original command
 // Names are created in the array based on the file name
@@ -7,11 +11,6 @@ var aliasCache = fs.readdirSync(path.join(__dirname, 'alias')).reduce(function (
     acc[item] = require(path.join(__dirname, 'alias', item));
     return acc;
 }, {});
-
-// format commands for CLI naming struture
-const formatCommands = (str) => {
-    return str;
-};
 
 // methods for CLI
 var index = fs.readdirSync(path.join(__dirname, 'methods')).reduce(function (acc, item) {
