@@ -8,7 +8,7 @@ var Commander = function (commandName, args, flags) {
                 var flagName = e[0];
                 return flagName === 'help' || flagName === 'h';
             }).length;
-            if (actions[commandName] && !!helpExists) {
+            if (actions[commandName] && helpExists > 0) {
                 return actions[commandName].documentation();
             } else {
                 return actions.documentation.command(...args);
