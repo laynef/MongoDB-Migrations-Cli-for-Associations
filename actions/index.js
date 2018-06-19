@@ -3,7 +3,7 @@ var path = require('path');
 var utils = require('./utils')
 
 // import utils in circular imports for older versions of Node.js
-var formatCommands = utils.formatCommands;
+var shortHandCommands = utils.shortHandCommands;
 
 // Constant lookup for alias names with key name being the original command
 // Names are created in the array based on the file name
@@ -16,12 +16,14 @@ var aliasCache = fs.readdirSync(path.join(__dirname, 'alias')).reduce(function (
 var index = fs.readdirSync(path.join(__dirname, 'methods')).reduce(function (acc, item) {
     // Import aliases with attached functionality
     if (!!aliasCache[item]) {
-            aliasCache[item].forEach((alias) => {
-            acc[formatCommands(alias)] = require(path.join(__dirname, 'methods', item));
+        aliasCache[item].forEach((alias) => {
+            var aliasShortHand = shortHandCommands(alias);
+            acc[aliasShortHand] = require(path.join(__dirname, 'methods', item));
         });
     }
     // Import original command with attached functionality
-    acc[formatCommands(item)] = require(path.join(__dirname, 'methods', item));
+    var originalShortHand = shortHandCommands(item);
+    acc[originalShortHand] = require(path.join(__dirname, 'methods', item));
     return acc;
 }, {});
 

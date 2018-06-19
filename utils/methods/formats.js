@@ -1,6 +1,6 @@
 module.exports = {
 
-    formatCommands: function () {
+    shortHandCommands: function () {
 
     },
 
