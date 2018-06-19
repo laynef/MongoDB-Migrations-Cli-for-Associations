@@ -3,8 +3,8 @@ var ncp = require('ncp').ncp;
 
 module.exports = {
 
-    copy: function (destintionPath, preexistingPath, callback) {
-        ncp(destintionPath, preexistingPath, { stopOnErr: true }, function (err) {
+    copy: function (source, destintation, callback) {
+        ncp(source, destintation, { stopOnErr: true }, function (err) {
             if (err) console.error('');
             else callback();
         });
