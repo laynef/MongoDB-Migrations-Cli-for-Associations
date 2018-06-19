@@ -2,7 +2,7 @@ var fs = require('fs');
 var path = require('path');
 
 // In node you do not need to include the path 'index' that is used by default
-var utils = require('./utils');
+var utils = require('../utils');
 
 // import utils in circular imports for older versions of Node.js
 var shortHandCommands = utils.shortHandCommands;
