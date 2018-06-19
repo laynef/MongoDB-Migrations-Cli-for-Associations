@@ -1,4 +1,4 @@
-# Mongo Mongoose Cli
+# Cobra CLI for MongoDB with Mongoose
 
 ## Goal of CLI
 ```
