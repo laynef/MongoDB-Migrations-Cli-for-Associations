@@ -24,8 +24,7 @@ var index = fs.readdirSync(path.join(__dirname, 'methods')).map(e => e.replace(R
         });
     }
     // Import original command with attached functionality
-    var originalShortHand = shortHandCommands(item);
-    acc[originalShortHand] = require(path.join(__dirname, 'methods', item));
+    acc[item] = require(path.join(__dirname, 'methods', item));
     return acc;
 }, {});
 
