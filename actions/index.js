@@ -19,8 +19,7 @@ var index = fs.readdirSync(path.join(__dirname, 'methods')).map(e => e.replace(R
     // Import aliases with attached functionality
     if (!!aliasCache[item]) {
         aliasCache[item].forEach((alias) => {
-            var aliasShortHand = shortHandCommands(alias);
-            acc[aliasShortHand] = require(path.join(__dirname, 'methods', item));
+            acc[alias] = require(path.join(__dirname, 'methods', item));
         });
     }
     // Import original command with attached functionality
