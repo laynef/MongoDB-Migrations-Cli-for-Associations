@@ -5,7 +5,7 @@ var utils = require('../../utils');
 var shortHandCommands = utils.shortHandCommands;
 
 var aliasCache = fs.readdirSync(path.join(__dirname, '..', 'alias')).map(e => e.replace(RegExp('.js', 'g'), '')).reduce(function (acc, item) {
-    acc[item] = require(path.join(__dirname, 'alias', item));
+    acc[item] = require(path.join(__dirname, '..', 'alias', item));
     return acc;
 }, {});
 
