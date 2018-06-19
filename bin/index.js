@@ -10,7 +10,9 @@ var flags = [];
 for (var i = 1; i < user.length; i++) {
     if (user[i].indexOf('--') === 0) {
         var command = user[i].slice(2);
-        flags.push(command);
+        var commandArg = user[i + 1];
+        flags.push([command, commandArg]);
+        i += 1;
     } else {
         args.push(user[i]);
     }
