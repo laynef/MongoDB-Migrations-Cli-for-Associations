@@ -12,8 +12,8 @@ var command = function () {
 
     console.log(templateDirectory)
 
-    copy(path.join(templateDirectory, 'config'), newDirectory, function () {
-        copy(path.join(templateDirectory, newDirectory, 'cobra'), function () {
+    copy(path.resolve(templateDirectory, 'config'), newDirectory, function () {
+        copy(path.resolve(templateDirectory, newDirectory, 'cobra'), function () {
             mkdir(path.resolve(newDirectory, 'migrations'), function() {
                 mkdir(path.resolve(newDirectory, 'seeders'), function() {
                     
