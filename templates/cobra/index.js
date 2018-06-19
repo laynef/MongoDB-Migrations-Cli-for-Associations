@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var root = path.join(__dirname, '..');
 
 var env = process.env.NODE_ENV || 'development';
-var config = require(path.resolve(root, 'config', 'index.js'))[env];
+var config = require(path.resolve(root, 'config.js'))[env];
 
 var length = Object.keys(config.options).length;
 
