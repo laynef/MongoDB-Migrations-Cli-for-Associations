@@ -1,7 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 
-var keyMapOfCommands = fs.readdirSync(path.join(__dirname)).map(function (e) { return e.replace(RegExp('.js', 'ig'), ''); }).filter(function (e) { return e !== 'documentation'; }).reduce(function (accumulation, file) {
+var keyMapOfCommands = fs.readdirSync(path.join(__dirname)).map(function (e) { return e.replace(RegExp('.js', 'g'), ''); }).filter(function (e) { return e !== 'documentation'; }).reduce(function (accumulation, file) {
     var shortcut = file.replace(/([A-Z])/g, ' $1').replace(/^./, function (str) { return str.toUpperCase(); }).split(' ').map(function (e) { return e[0]; }).join('').toLowerCase();
     accumulation[file] = require(path.join(__dirname, file));
     accumulation[shortcut] = require(path.join(__dirname, file));
