@@ -10,8 +10,10 @@ var command = function () {
     var newDirectory = path.join(process.cwd());
     var templateDirectory = path.join(__dirname, '..', '..', 'templates');
 
-    copy(newDirectory, path.resolve(templateDirectory, 'config'), function () {
-        copy(newDirectory, path.resolve(templateDirectory, 'cobra'), function () {
+    console.log(templateDirectory)
+
+    copy(newDirectory, path.join(templateDirectory, 'config'), function () {
+        copy(newDirectory, path.join(templateDirectory, 'cobra'), function () {
             mkdir(path.resolve(newDirectory, 'migrations'), function() {
                 mkdir(path.resolve(newDirectory, 'seeders'), function() {
                     
