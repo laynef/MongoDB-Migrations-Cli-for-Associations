@@ -1,12 +1,25 @@
-var fs = require('fs');
-var path = require('path');
-
 // methods for CLI
-var index = fs.readdirSync(path.join(__dirname, 'methods')).reduce(function (acc, item) {
-    // Import original command with attached functionality
-    acc[item] = require(path.join(__dirname, 'methods', item));
-    return acc;
-}, {});
+var actions = require('../actions');
 
-// All keys or command names for commander of CLI and values are the the functionality called
-module.exports = index;
+var Commander = function (commandName, args, flags) {
+    var execute = function () {
+        if (flags.length > 0) {
+            const helpExists = flags.filter(e => RegExp(/help/ig).test(e)).length;
+            if (actions[commandName] && !!helpExists) {
+                return actions[commandName].documentation();
+            } else {
+                return actions.documentation.command(...args);
+            }
+        } else {
+            if (actions[commandName]) {
+                return actions[commandName].command(...args);
+            } else {
+                return actions.documentation.command();
+            }
+        }
+    };
+
+    return { execute: execute };
+};
+
+module.exports = Commander;
