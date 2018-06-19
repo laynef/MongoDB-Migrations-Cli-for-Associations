@@ -35,14 +35,14 @@ the final desired outcome
 
 ## Bugs 
 
-I will not be responsive to criticism in Issues filed. I did this to clean up legacy code
-for myself. I will definitely take a look at pull requests and import them when you
-solve the problem yourself. 
+I will not be responsive to criticism in Issues filed because this is out of pocket for myself. 
+I did this to clean up possible legacy code for myself. I will definitely take a look at pull 
+requests and import them when you solve the problem yourself. 
 
-I personally choose PostgreSQL so you will not see updates from myself in the future.
-Structure is important in databases and NoSQL databases are to 'new' for my taste. I
-however work with them. So please be considerate when you find issues or request 
-updates.
+I personally choose PostgreSQL so you will not see updates (updates will be rare and few) 
+from myself in the future. Structure is important in databases and NoSQL databases are to 'new' 
+for my taste. I however work with them. So please be considerate when you find issues or request 
+future updates.
 
 The code has documentation on every step of the way for you to follow alone. I will
 require documentation in pull requests. I love creativity just please document your
