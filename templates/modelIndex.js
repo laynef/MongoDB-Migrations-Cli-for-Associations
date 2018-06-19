@@ -18,6 +18,7 @@ var options = {
         auto_reconnect: true,
         poolSize: 5,
     },
+    autoIndex: true,
 };
 
 var schemasCollections = fs.readdirSync(path.resolve(root, 'migrations')).reduce((modelObject, migration) => {
