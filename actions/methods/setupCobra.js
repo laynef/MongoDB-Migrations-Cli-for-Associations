@@ -9,7 +9,7 @@ var command = function () {
     var newDirectory = path.join(process.cwd());
     var templateDirectory = path.join(__dirname, '..', '..', 'templates');
 
-    copy(newDirectory, path.resolve(templateDirectory, 'models'), function () {});
+    copy(newDirectory, path.resolve(templateDirectory, 'cobra'), function () {});
 };
 
 var documentation = function () {

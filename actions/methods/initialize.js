@@ -11,7 +11,7 @@ var command = function () {
     var templateDirectory = path.join(__dirname, '..', '..', 'templates');
 
     copy(newDirectory, path.resolve(templateDirectory, 'config'), function () {});
-    copy(newDirectory, path.resolve(templateDirectory, 'models'), function () {});
+    copy(newDirectory, path.resolve(templateDirectory, 'cobra'), function () {});
     mkdir(path.resolve(newDirectory, 'migrations'), function() {})
     mkdir(path.resolve(newDirectory, 'seeders'), function() {})
 };
