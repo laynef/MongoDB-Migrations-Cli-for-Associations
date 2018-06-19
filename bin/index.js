@@ -1,20 +1,21 @@
 #!/usr/bin/env node
 
-const Commander = require('../commander');
+var Commander = require('../commander');
 
-const user = process.argv.slice(2);
+var user = process.argv.slice(2);
 
-const args = [];
-const flags = [];
+var args = [];
+var flags = [];
 
 for (var i = 1; i < user.length; i++) {
     if (user[i].indexOf('--') === 0) {
-        flags.push(user[i]);
+        var command = user[i].slice(2);
+        flags.push(command);
     } else {
         args.push(user[i]);
     }
 }
 
-const start = new Commander(user[0], args, flags);
+var start = new Commander(user[0], args, flags);
 
 start.execute();
