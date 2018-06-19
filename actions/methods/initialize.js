@@ -14,7 +14,7 @@ var command = function () {
         copy(templateDirectory, newDirectory + '/cobra', function () {
             mkdir(path.resolve(newDirectory, 'migrations'), function() {
                 mkdir(path.resolve(newDirectory, 'seeders'), function() {
-                    
+                    console.log('Your initial setup is ready to go.');
                 });
             });
         });
