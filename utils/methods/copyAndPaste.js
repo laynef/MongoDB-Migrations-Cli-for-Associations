@@ -9,9 +9,10 @@ module.exports = {
             else callback();
         });
     },
-    mkdir: function (destintionPath) {
+
+    mkdir: function (destintionPath, callback) {
         fs.mkdir(destintionPath, 0o777, function (error) {
-            if (err) console.error('');
+            if (error) console.error('');
             else callback();
         });
     },
