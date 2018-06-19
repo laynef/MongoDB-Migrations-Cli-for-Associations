@@ -8,13 +8,25 @@ var root = path.join(__dirname, '..');
 var env = process.env.NODE_ENV || 'development';
 var config = require(path.resolve(root, 'config.js'))[env];
 
+var length = Object.keys(config.options).length;
+
+var options = {
+    db: {
+        native_parser: true,
+    },
+    server: {
+        auto_reconnect: true,
+        poolSize: 5,
+    },
+};
+
 var mongoDbUri = 'mongodb://' + (config.username || '') +
 (config.username && config.password ? ':' : '') +
 (config.password || '') +
 (config.username && config.password ? '@' : '') +
 config.host + ':' + config.port + '/' + config.name;
 
-mongoose.connect(mongoDbUri, config.options, function (err) {
+mongoose.connect(mongoDbUri, !length ? options : config.options, function (err) {
     if (err) {
         console.error('');
     } else {
@@ -22,12 +34,14 @@ mongoose.connect(mongoDbUri, config.options, function (err) {
     }
 });
 
-var db = mongoose.connection;
+var Cobra = {};
 
-db.on('error', console.error.bind(console, ''));
+Cobra.db = mongoose.connection;
 
-db.on('open', function () {
+Cobra.db.on('error', console.error.bind(console, ''));
+
+Cobra.db.once('open', function () {
     return console.info('');
 });
 
-module.exports = db;
+module.exports = Cobra;
