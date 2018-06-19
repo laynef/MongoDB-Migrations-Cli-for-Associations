@@ -1,3 +1,11 @@
-module.exports = function() {
-    
+module.exports = {
+
+    command: function () {
+
+    },
+
+    documentation: function () {
+
+    },
+
 };
