@@ -1,11 +1,18 @@
-var description = '';
+var path = require('path');
+var utils = require('../../utils');
+
+var mkdir = utils.mkdir;
+
+var description = 'Setting up initial migrations if not exists';
 
 var command = function () {
-    console.info('');
+    var newDirectory = path.join(process.cwd());
+
+    mkdir(path.resolve(newDirectory, 'migrations'), function () {});
 };
 
 var documentation = function () {
-    return command();
+    console.info('');
 };
 
 module.exports = {

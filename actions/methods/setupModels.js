@@ -1,14 +1,15 @@
 var path = require('path');
 var utils = require('../../utils');
 
-var mkdir = utils.mkdir;
+var copy = utils.copy;
 
-var description = 'Setting up initial seeders if not exists';
+var description = 'Setting up initial models if not exists';
 
 var command = function () {
     var newDirectory = path.join(process.cwd());
+    var templateDirectory = path.join(__dirname, '..', '..', 'templates');
 
-    mkdir(path.resolve(newDirectory, 'seeders'), function () {});
+    copy(newDirectory, path.resolve(templateDirectory, 'models'), function () {});
 };
 
 var documentation = function () {

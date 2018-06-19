@@ -1,11 +1,23 @@
-var description = '';
+var path = require('path')
+var utils = require('../../utils')
+
+var copy = utils.copy;
+var mkdir = utils.mkdir;
+
+var description = 'Setting up initial configuration if not exists';
 
 var command = function () {
-    console.info('');
+    var newDirectory = path.join(process.cwd());
+    var templateDirectory = path.join(__dirname, '..', '..', 'templates');
+
+    copy(newDirectory, path.resolve(templateDirectory, 'config'), function () {});
+    copy(newDirectory, path.resolve(templateDirectory, 'models'), function () {});
+    mkdir(path.resolve(newDirectory, 'migrations'), function() {})
+    mkdir(path.resolve(newDirectory, 'seeders'), function() {})
 };
 
 var documentation = function () {
-    return command();
+    console.info('');
 };
 
 module.exports = {
