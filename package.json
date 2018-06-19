@@ -29,6 +29,6 @@
     "eslint-plugin-standard": "^3.1.0"
   },
   "bin": {
-    "cobra": "./bin/handler.js"
+    "cobra": "./bin/index.js"
   }
 }
