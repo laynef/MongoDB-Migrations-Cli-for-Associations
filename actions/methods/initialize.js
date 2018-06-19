@@ -10,10 +10,15 @@ var command = function () {
     var newDirectory = path.join(process.cwd());
     var templateDirectory = path.join(__dirname, '..', '..', 'templates');
 
-    copy(newDirectory, path.resolve(templateDirectory, 'config'), function () {});
-    copy(newDirectory, path.resolve(templateDirectory, 'cobra'), function () {});
-    mkdir(path.resolve(newDirectory, 'migrations'), function() {})
-    mkdir(path.resolve(newDirectory, 'seeders'), function() {})
+    copy(newDirectory, path.resolve(templateDirectory, 'config'), function () {
+        copy(newDirectory, path.resolve(templateDirectory, 'cobra'), function () {
+            mkdir(path.resolve(newDirectory, 'migrations'), function() {
+                mkdir(path.resolve(newDirectory, 'seeders'), function() {
+                    
+                });
+            });
+        });
+    });
 };
 
 var documentation = function () {
